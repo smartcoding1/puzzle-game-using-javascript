@@ -1,0 +1,39 @@
+.heading h1{
+	font-size: 40px;
+	text-align: center;
+	color: red;	
+}
+p{
+	font-size: 20px;
+	text-align: center;
+}
+/*.container{
+	
+	background-color: pink;
+}*/
+.box{
+	height: 200px;
+	width: 200px;
+	background-color: grey;
+	border: 2px solid black;
+	display: inline-block;
+		
+}
+.main1{
+
+	text-align: center;
+}
+.main2{
+	text-align: center;
+}
+.main3{
+text-align: center;
+}
+.pic{
+	height: 200px;
+	width: 200px;
+	display: none;
+}
+.box:hover .pic{
+	display: block;
+}
