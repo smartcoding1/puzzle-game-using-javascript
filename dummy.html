@@ -3,31 +3,95 @@
 <head>
 	<title>dummy</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="dummy.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
 	<header>
 		<div class="heading">
 			<h1> Welome here to game window</h1>
 			<p>find the salman khan</p>
+			<p id="trialID">Trial</p>
 		</div>
 	</header>
-	<div class="container">
-<div class="main1">
-	<div class="box"><img class="pic" src="1.jpg"></div>
-	<div class="box"><img class="pic" src="2.jpg"></div>
-	<div class="box"><img class="pic" src="3.jpg"></div>
-</div>
-<div class="main2">
-	<div class="box"><img class="pic" src="4.jpg"></div>
-	<div class="box"><img class="pic" src="5.jpg"></div>
-	<div class="box"><img class="pic" src="6.jpg"></div>	
-</div>
-<div class="main3">
-	<div class="box"><img class="pic" src="7.jpg"></div>
-	<div class="box"><img class="pic" src="8.jpg"></div>
-	<div class="box"><img class="pic" src="9.jpg"></div>	
-</div>
-</div>
-  <script type="text/javascript" src="dummy.js"></script>
+  <div id="main1">
+		 <img class="pic" src="1.jpg">
+         <img class="pic" src="2.jpg">
+	     <img class="pic" src="3.jpg">
+	     <img class="pic" src="4.jpg">
+	     <img class="pic" src="5.jpg">
+	     <img class="pic" src="6.jpg">
+	     <img class="pic" src="7.jpg">
+	     <img class="pic" src="8.jpg">
+	     <img class="pic" src="9.jpg">
+	<div class="backup"  id="1" ></div>
+    <div class="backup" id="2"></div>
+    <div class="backup  "id="3"></div>
+    <div class="backup" id="4"></div>
+    <div class="backup" id="5"></div>
+    <div class="backup" id="6"></div>
+    <div class="backup" id="7"></div>
+    <div class="backup" id="8"></div>
+    <div class="backup" id="8"></div>
+  </div>
+   
 </body>
 </html>
+<script type="text/javascript">
+      var ar=['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg'];
+      shuffle=[]
+      counter=0;
+       trial=3;
+       ref=0;
+		for(p=0;p<9;p++){
+		   let random=Math.floor(Math.random()*9+0);
+           
+            for(j=0;j<shuffle.length;j++){
+                   if(random!=shuffle[j]){
+                      counter++;
+                   } 
+                   else{
+                     p=p-1;
+                     break;
+                   }
+                }
+                shuffle[counter]=random;
+                counter=0;
+         }
+         console.log(shuffle)
+         $(document).ready(function(){
+         	$("#trialID").html("No of Trial left "+trial)
+             for(i=0;i<9;i++){
+               var str=ar[shuffle[i]]
+              $("#main1").children("img").eq(i).attr('src',str);
+            }
+
+            $('.backup').on('click',function(){
+            	trial=trial-1;
+            	$("#trialID").html("No of Trial left "+trial)
+            	   $(this).css('visibility','hidden');
+            	   var l=$(this).attr('id');
+            	   var imag=$("#main1").children($("img")).eq(l-1).attr('src');
+                    console.log(imag)
+            	   
+                    if(trial==0 && imag!='7.jpg'){
+                        ref++;
+                        setTimeout(function(){alert("You have Loose the Game");},500);
+                      
+                    }
+                 else if(imag=="7.jpg"){
+                       ref++;
+                       setTimeout(function(){alert("You have Won the Game");},500); 
+                }
+                  if(ref==1){
+                    setTimeout(function(){
+                      history.go(0);
+                    },1000)
+                  }
+              
+            })
+         });
+
+
+</script>
