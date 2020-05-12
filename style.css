@@ -1,3 +1,7 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
 .heading h1{
 	font-size: 40px;
 	text-align: center;
@@ -7,10 +11,11 @@ p{
 	font-size: 20px;
 	text-align: center;
 }
-/*.container{
-	
-	background-color: pink;
-}*/
+#main1{
+text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
 .box{
 	height: 200px;
 	width: 200px;
@@ -19,21 +24,18 @@ p{
 	display: inline-block;
 		
 }
-.main1{
-
-	text-align: center;
-}
-.main2{
-	text-align: center;
-}
-.main3{
-text-align: center;
-}
 .pic{
 	height: 200px;
 	width: 200px;
-	display: none;
+
+	
 }
-.box:hover .pic{
-	display: block;
+.backup{
+	background-color: black;
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    bottom: 612px;
 }
+
